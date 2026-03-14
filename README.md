@@ -20,4 +20,4 @@ Open index.html directly in your browser, or start a simple local server:
 py -m http.server 4173
 ```
 
-Then visit http://127.0.0.1:4173.
+
