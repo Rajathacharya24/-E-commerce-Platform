@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namma Bazaar Bengaluru</title>
+    <meta
+      name="description"
+      content="Namma Bazaar Bengaluru is a neighborhood storefront for fresh groceries, pantry staples, and ready-to-cook local favorites."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Bengaluru neighborhood grocery</p>
+          <a class="brand" href="#home">Namma Bazaar</a>
+        </div>
+        <nav class="topbar__actions" aria-label="Quick links">
+          <a href="#catalog">Shop</a>
+          <a href="#story">Our story</a>
+          <button class="cart-toggle" id="cart-toggle" type="button" aria-expanded="false" aria-controls="cart-panel">
+            Cart
+            <span class="cart-toggle__count" id="cart-count">0</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <div class="hero__copy">
+            <p class="eyebrow">Fresh essentials, quick local pickup</p>
+            <h1>Shop your local market without standing in line.</h1>
+            <p class="hero__text">
+              Browse pantry staples, breakfast favorites, fresh produce, and ready-to-cook meals sourced from nearby suppliers across Bengaluru.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#catalog">Browse products</a>
+              <a class="button button--ghost" href="#story">How ordering works</a>
+            </div>
+            <dl class="hero__stats">
+              <div>
+                <dt>40 min</dt>
+                <dd>Average pickup window</dd>
+              </div>
+              <div>
+                <dt>8</dt>
+                <dd>Neighborhood bestsellers</dd>
+              </div>
+              <div>
+                <dt>4.9/5</dt>
+                <dd>Local customer rating</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="hero__card">
+            <p class="hero__card-title">Today at the market</p>
+            <ul>
+              <li>Fresh produce restock at 7:30 AM</li>
+              <li>Ready-to-cook meals available until sold out</li>
+              <li>Free pickup on orders above Rs.1200</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Storefront</p>
+              <h2 id="catalog-title">Curated for the weekly shop</h2>
+            </div>
+            <label class="search-field" for="search-input">
+              <span class="search-field__label">Search</span>
+              <input id="search-input" type="search" placeholder="Find idli batter, dosa rice, filter coffee..." />
+            </label>
+          </div>
+
+          <div class="filters" id="filters" aria-label="Product categories"></div>
+          <div class="product-grid" id="product-grid"></div>
+        </section>
+
+        <section class="story" id="story">
+          <div class="story__panel">
+            <p class="eyebrow">Ordering flow</p>
+            <h2>Built for quick neighborhood orders.</h2>
+            <p>
+              Add products to the cart, adjust quantities, choose a pickup slot, and place the order. The checkout is front-end only, so it simulates confirmation without a payment backend.
+            </p>
+          </div>
+          <div class="story__steps">
+            <article>
+              <span>01</span>
+              <h3>Browse</h3>
+              <p>Filter by category or search directly from the catalog grid.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Build your cart</h3>
+              <p>Update quantities in the slide-out cart and review the total instantly.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Place the order</h3>
+              <p>Submit pickup details and receive an on-page order confirmation.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" aria-hidden="true">
+        <div class="cart-panel__header">
+          <div>
+            <p class="eyebrow">Shopping cart</p>
+            <h2 id="cart-title">Ready for pickup</h2>
+          </div>
+          <button class="icon-button" id="cart-close" type="button" aria-label="Close cart">×</button>
+        </div>
+
+        <div class="cart-items" id="cart-items"></div>
+
+        <div class="cart-summary">
+          <div>
+            <span>Subtotal</span>
+            <strong id="subtotal-value">Rs.0</strong>
+          </div>
+          <div>
+            <span>Pickup fee</span>
+            <strong id="delivery-value">Rs.0</strong>
+          </div>
+          <div class="cart-summary__total">
+            <span>Total</span>
+            <strong id="total-value">Rs.0</strong>
+          </div>
+        </div>
+
+        <form class="checkout-form" id="checkout-form">
+          <h3>Checkout details</h3>
+          <label>
+            Full name
+            <input name="name" type="text" placeholder="Aarav Patel" required />
+          </label>
+          <label>
+            Phone number
+            <input name="phone" type="tel" placeholder="+91 98765 43210" required />
+          </label>
+          <label>
+            Pickup slot
+            <select name="slot" required>
+              <option value="">Select a time</option>
+              <option>Today, 4:00 PM - 5:00 PM</option>
+              <option>Today, 6:00 PM - 7:00 PM</option>
+              <option>Tomorrow, 9:30 AM - 10:30 AM</option>
+            </select>
+          </label>
+          <label>
+            Order note
+            <textarea name="notes" rows="3" placeholder="Leave at front counter, add ripe bananas, etc."></textarea>
+          </label>
+          <button class="button button--primary button--full" type="submit">Place order</button>
+          <p class="checkout-form__note">Demo checkout only. No real payment processing is connected.</p>
+        </form>
+      </aside>
+    </div>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <dialog class="confirmation" id="confirmation-dialog">
+      <p class="eyebrow">Order confirmed</p>
+      <h2>Pickup request received.</h2>
+      <p id="confirmation-message"></p>
+      <button class="button button--primary" id="confirmation-close" type="button">Continue shopping</button>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>

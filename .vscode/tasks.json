@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Preview Namma Bazaar",
+			"type": "shell",
+			"command": "py",
+			"args": [
+				"-m",
+				"http.server",
+				"4173"
+			],
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}
